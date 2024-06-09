@@ -22,7 +22,7 @@ namespace ZimRegexLib.Annotations
             {
               return ValidationResult.Success;
           }
-          if (value is string stringValue && stringValue.IsZimbabweanMobileNumber() )
+          if (value is string stringValue && stringValue.IsValidZimbabweanMobileNumber() )
             {
               return ValidationResult.Success;
           }

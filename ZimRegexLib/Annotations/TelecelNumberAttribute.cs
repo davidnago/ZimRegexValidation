@@ -20,7 +20,7 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            if (value is string stringValue && stringValue.IsTelecelNumber())
+            if (value is string stringValue && stringValue.IsValidTelecelNumber())
             {
                 return ValidationResult.Success;
             }

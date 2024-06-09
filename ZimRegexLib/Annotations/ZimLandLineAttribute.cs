@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ZimRegexLib.Extensions;
 
 namespace ZimRegexLib.Annotations
 {
-    public class NetoneNumberAttribute : ValidationAttribute
+    public  class ZimLandLineAttribute : ValidationAttribute
     {
-        private const string DefaultErrorMessage = "The {0} field is not a valid NetOne number.";
+        private const string DefaultErrorMessage = "The {0} field is not a valid Zimbabwean landline number.";
 
-        public NetoneNumberAttribute() : base(DefaultErrorMessage) { }
+        public ZimLandLineAttribute() : base(DefaultErrorMessage) { }
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
@@ -20,12 +16,11 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            if (value is string stringValue && stringValue.IsValidNetOneNumber())
+            if (value is string stringValue && stringValue.IsValidZimLandline())
             {
                 return ValidationResult.Success;
             }
             return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
         }
-
     }
 }

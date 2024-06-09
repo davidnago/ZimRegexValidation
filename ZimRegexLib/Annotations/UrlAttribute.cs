@@ -8,11 +8,11 @@ using ZimRegexLib.Extensions;
 
 namespace ZimRegexLib.Annotations
 {
-    public class NetoneNumberAttribute : ValidationAttribute
+    public class UrlAttribute : ValidationAttribute
     {
-        private const string DefaultErrorMessage = "The {0} field is not a valid NetOne number.";
+        private const string DefaultErrorMessage = "The {0} field is not a valid URL.";
 
-        public NetoneNumberAttribute() : base(DefaultErrorMessage) { }
+        public UrlAttribute() : base(DefaultErrorMessage) { }
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
@@ -20,12 +20,11 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            if (value is string stringValue && stringValue.IsValidNetOneNumber())
+            if (value is string stringValue && stringValue.IsValidUrl())
             {
                 return ValidationResult.Success;
             }
             return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
         }
-
     }
 }

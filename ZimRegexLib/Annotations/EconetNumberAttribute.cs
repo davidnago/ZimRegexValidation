@@ -20,7 +20,7 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            if (value is string stringValue && stringValue.IsEconetNumber())
+            if (value is string stringValue && stringValue.IsValidEconetNumber())
             {
                 return ValidationResult.Success;
             }
