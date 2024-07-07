@@ -19,6 +19,7 @@ Validate URLs, and number plates.
 Format mobile numbers and national IDs according to specified formats.
 Easy-to-use data annotations for model validation.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+	 <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

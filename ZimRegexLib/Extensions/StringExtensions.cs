@@ -53,25 +53,25 @@ namespace ZimRegexLib.Extensions
         public static bool IsValidZimPassportNumber(this string input)
         {
             input = input.Trim();
-            return Regex.IsMatch(input, @"^[A-Z]{2}\d{6}$");
+            return Regex.IsMatch(input, @"^[A-Za-z]{2}\d{6}$");
         }
 
         public static bool IsValidZimIdNumber(this string input)
         {
             input = input.Trim();
-            return Regex.IsMatch(input, @"^\d{2}-\d{7}[A-Z]{2}$");
+            return Regex.IsMatch(input, @"^\d{2}([-\/\s])?\d{6,7}\s?[A-Za-z]\s?\d{2}$");
         }
 
         public static bool IsValidZimNumberPlate(this string input)
         {
             input = input.Trim();
-            return Regex.IsMatch(input, @"^[A-Z]{3}\s\d{4}$");
+            return Regex.IsMatch(input, @"^[A-Za-z]{3}[-\s]?\d{4}$");
         }
 
         public static bool IsValidZimDriversLicence(this string input)
         {
             input = input.Trim();
-            return Regex.IsMatch(input, @"^[A-Z]{2}\d{6}$");
+            return Regex.IsMatch(input, @"^\d{5}[A-Za-z]{2}\b");
         }
 
         public static bool IsValidUrl(this string input)
