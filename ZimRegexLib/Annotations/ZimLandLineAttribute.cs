@@ -9,6 +9,7 @@ namespace ZimRegexLib.Annotations
         private const string DefaultErrorMessage = "The {0} field is not a valid Zimbabwean landline number.";
 
         public ZimLandLineAttribute() : base(DefaultErrorMessage) { }
+        public ZimLandLineAttribute(string errorMessage) : base(errorMessage) { }
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
@@ -20,7 +21,9 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+           
+            var errorMessage = string.IsNullOrEmpty(ErrorMessage) ? DefaultErrorMessage : ErrorMessage;
+            return new ValidationResult(string.Format(errorMessage, validationContext.DisplayName));
         }
     }
 }

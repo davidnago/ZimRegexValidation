@@ -14,6 +14,9 @@ namespace ZimRegexLib.Annotations
 
         public TelecelNumberAttribute() : base(DefaultErrorMessage) { }
 
+        public TelecelNumberAttribute(string errorMessage) : base(errorMessage) { }
+
+
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             if (value == null)
@@ -24,7 +27,8 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+            var errorMessage = string.IsNullOrEmpty(ErrorMessage) ? DefaultErrorMessage : ErrorMessage;
+            return new ValidationResult(string.Format(errorMessage, validationContext.DisplayName));
         }
     }
 }

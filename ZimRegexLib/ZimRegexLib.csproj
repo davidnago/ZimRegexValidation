@@ -4,6 +4,28 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Zim Regex library</Title>
+    <Description>
+
+
+Zim Regex Library provides a comprehensive set of regex-based validation and formatting utilities specifically designed for Zimbabwean data formats. Validate mobile numbers, national IDs, passports, and more with ease. Ensure data integrity and accuracy in your .NET applications with simple and reusable annotations and extension methods.
+
+Features:
+
+Validate Zimbabwean mobile numbers for Econet, NetOne, and Telecel.
+Check Zimbabwean national ID, passport, and driver's license formats.
+Validate URLs, and number plates.
+Format mobile numbers and national IDs according to specified formats.
+Easy-to-use data annotations for model validation.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

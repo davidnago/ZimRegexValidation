@@ -13,6 +13,7 @@ namespace ZimRegexLib.Annotations
         private const string DefaultErrorMessage = "The {0} field does not meet minimum password requirements (minimum of 8 characters, at least 1 special character, 1 capital letter, 1 numeric character)";
 
         public PasswordAttribute() : base(DefaultErrorMessage) { }
+        public PasswordAttribute(string errorMessage) : base(errorMessage) { }
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
@@ -24,7 +25,8 @@ namespace ZimRegexLib.Annotations
             {
                 return ValidationResult.Success;
             }
-            return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+            var errorMessage = string.IsNullOrEmpty(ErrorMessage) ? DefaultErrorMessage : ErrorMessage;
+            return new ValidationResult(string.Format(errorMessage, validationContext.DisplayName));
         }
          
 

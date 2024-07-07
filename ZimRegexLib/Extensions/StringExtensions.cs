@@ -13,7 +13,7 @@ namespace ZimRegexLib.Extensions
         #region Mobile and Land Number Extensions
         private static readonly Dictionary<MobileServiceProvider, string> MobileNumberPatterns = new Dictionary<MobileServiceProvider, string>
         {
-            { MobileServiceProvider.Econet, @"^(\+263|0)(77[2-9]|78[2-9])\d{6}$" },
+            { MobileServiceProvider.Econet, @"^(\+263|0)(77[1-9]\d{6}|78[2-7]\d{6})$" },
             { MobileServiceProvider.NetOne, @"^(\+263|0)71[2-9]\d{6}$" },
             { MobileServiceProvider.Telecel, @"^(\+263|0)73[2-9]\d{6}$" }
         };
